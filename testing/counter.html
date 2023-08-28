@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="counter.css">
+</head>
+<body>
+  <div class="outer-section-counter">
+    <div class="inner-section-counter">
+      <div class="icon-counter">&#x1F4C8;</div>
+      <div class="counter-counter animated">0</div>
+    </div>
+    <div class="inner-section-counter">
+      <div class="icon-counter">&#x1F4C8;</div>
+      <div class="counter-counter animated">0</div>
+    </div>
+    <div class="inner-section-counter">
+      <div class="icon-counter">&#x1F4C8;</div>
+      <div class="counter-counter animated">0</div>
+    </div>
+    <div class="inner-section-counter">
+      <div class="icon-counter">&#x1F4C8;</div>
+      <div class="counter-counter animated">0</div>
+    </div>
+  </div>
+  <script>
+    const counters = document.querySelectorAll('.counter-counter');
+    const targetValues = [100, 200, 3000, 400];
+
+    counters.forEach((counter, index) => {
+      let count = 0;
+      const targetValue = targetValues[index];
+      const updateCounter = () => {
+        if (count < targetValue) {
+          count += Math.ceil(targetValue / 100);
+          if (count > targetValue) {
+            count = targetValue;
+          }
+          counter.textContent = count;
+        }
+      };
+      setInterval(updateCounter, 10);
+    });
+  </script>
+</body>
+</html>
